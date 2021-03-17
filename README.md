@@ -1,4 +1,4 @@
-# my-react-hooks
+# My react hooks
 There is my hooks created during projects
 
 ## UseLocalState - A hook for manipulating localStorage object. create / update / delete.
