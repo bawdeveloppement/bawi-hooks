@@ -1,6 +1,64 @@
 # My react hooks
 There is my hooks created during projects
 
+## Animator
+Jsx Example
+```jsx
+import { Animator } from './animator';
+
+<Animator>
+ <img src="./logo.svg" alt="Logo" title="Logo"></div>
+</Animator>
+```
+
+
+```
+jsximport { createRef } from 'react';
+import { useAnimator } from '../../libs/Hooks/Animator'
+import PropTypes from 'prop-types'
+
+const dashKeyframes = [
+    { offset: 0.0, strokeDasharray: "1, 150", strokeDashoffset: 0 },
+    { offset: 0.5, strokeDasharray: "90, 150", strokeDashoffset: -35 },
+    { offset: 1.0, strokeDasharray: "90, 150", strokeDashoffset: -124 },
+]
+
+const rotateKeyframes = [
+    { offset: 0.0, transform: 'rotate(0deg)' },
+    { offset: 1.0, transform: 'rotate(360deg)' }
+]
+
+const spinnerTiming = {
+    duration: 2000,
+    iterations: Infinity,
+    easing: "linear"
+}
+
+const pathTiming = {
+    duration: 1500,
+    iterations: Infinity,
+    easing: "ease-in-out"
+}
+
+export default function Spinner ({ className = "w-5 z-10 inline spinner" }) {
+    const spinnerRef = createRef();
+    const spinnerPathRef = createRef();
+    useAnimator(spinnerRef, { keyframes: rotateKeyframes, timing: spinnerTiming })
+    useAnimator(spinnerPathRef, { keyframes: dashKeyframes, timing: pathTiming })
+
+    return (
+        <svg className={ className } ref={spinnerRef} viewBox="0 0 50 50">
+            <circle className="path" style={{ stroke: 'rgb(13, 14, 15)', strokeLinecap: 'round' }} ref={spinnerPathRef} cx="25" cy="25" r="20" fill="none" strokeWidth="5"></circle>
+        </svg>
+    );
+}
+
+Spinner.propTypes = {
+    className: PropTypes.string
+}
+
+```
+
 ## UseLocalState - A hook for manipulating localStorage object. create / update / delete.
  - [x] create a key & assigning default value (ex: ```const [ name, setName, delName ] = useLocalState("name", "Baw") )```;
 
