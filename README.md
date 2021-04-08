@@ -12,8 +12,8 @@ import { Animator } from './animator';
 ```
 
 
-```
-jsximport { createRef } from 'react';
+```jsx
+import { createRef } from 'react';
 import { useAnimator } from '../../libs/Hooks/Animator'
 import PropTypes from 'prop-types'
 
