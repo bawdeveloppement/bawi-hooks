@@ -2,16 +2,10 @@
 There is my hooks created during projects
 
 ## Animator
-Jsx Example
-```jsx
-import { Animator } from './animator';
-
-<Animator>
- <img src="./logo.svg" alt="Logo" title="Logo"></div>
-</Animator>
-```
-
-
+### Description
+Permet d'utiliser Web_animation_v1 version plug and play grace à un react hook. Des potentiels mise à jour seront à prévoir.
+Voir les issues : https://github.com/bawdeveloppement/my-react-hooks/issues
+### Example:
 ```jsx
 import { createRef } from 'react';
 import { useAnimator } from '../../libs/Hooks/Animator'
