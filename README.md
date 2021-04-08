@@ -43,7 +43,8 @@ const pathTiming = {
 export const SpinnerUsingHook = ({ className = "w-5 z-10 inline" }) => {
     const spinnerRef = createRef();
     const spinnerPathRef = createRef();
-    useAnimator(spinnerRef, { keyframes: rotateKeyframes, timing: spinnerTiming })
+    // https://developer.mozilla.org/en-US/docs/Web/API/Animation
+    const { play, pause, ...Animation.properties } = useAnimator(spinnerRef, { keyframes: rotateKeyframes, timing: spinnerTiming }) // L'animation est joué par défault
     useAnimator(spinnerPathRef, { keyframes: dashKeyframes, timing: pathTiming })
 
     return (
