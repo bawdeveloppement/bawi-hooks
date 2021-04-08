@@ -40,7 +40,7 @@ const pathTiming = {
     easing: "ease-in-out"
 }
 
-export default function Spinner ({ className = "w-5 z-10 inline spinner" }) {
+export const SpinnerUsingHook = ({ className = "w-5 z-10 inline" }) => {
     const spinnerRef = createRef();
     const spinnerPathRef = createRef();
     useAnimator(spinnerRef, { keyframes: rotateKeyframes, timing: spinnerTiming })
@@ -53,10 +53,9 @@ export default function Spinner ({ className = "w-5 z-10 inline spinner" }) {
     );
 }
 
-Spinner.propTypes = {
+SpinnerUsingHook.propTypes = {
     className: PropTypes.string
 }
-
 ```
 
 ## UseLocalState - A hook for manipulating localStorage object. create / update / delete.
